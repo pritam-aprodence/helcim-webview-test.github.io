@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Helcim Payment</title>
+    <script src="https://secure.helcim.com/helcim-pay/install.js"></script>
+</head>
+<body>
+    <div id="helcimPayContainer"></div>
+    <script>
+        // Get the token from the URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const token = urlParams.get('token');
+
+        // Start the Helcim UI
+        appendHelcimPayIframe(token);
+
+        // Listen for the result
+        window.addEventListener('message', (event) => {
+            if (event.data.eventStatus === 'SUCCESS') {
+                // Tell Flutter the payment was successful
+                Print.postMessage("SUCCESS"); 
+            }
+        });
+    </script>
+</body>
+</html>
