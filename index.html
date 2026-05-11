@@ -19,9 +19,9 @@
 
         // Listen for the result
         window.addEventListener('message', (event) => {
+            console.log(JSON.stringfy(event,null,2));
             if (event.data.eventStatus === 'SUCCESS') {
-                // Tell Flutter the payment was successful
-                Print.postMessage("SUCCESS"); 
+               console.log(event.data, "EVENT.DATA---------------")
             }
         });
     </script>
