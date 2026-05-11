@@ -19,7 +19,7 @@
 
         // Listen for the result
         window.addEventListener('message', (event) => {
-            console.log(JSON.stringify(event,null,2));
+            console.log(JSON.stringify(event.data,null,2));
             if (event.data.eventStatus === 'SUCCESS') {
                console.log(event.data, "EVENT.DATA---------------")
             }
